@@ -1,0 +1,732 @@
+/* ============================================
+   CONTACT PAGE — Light & Colorful
+   ============================================ */
+
+body.contact {
+  background: #fafafa;
+  color: #1a1a1a;
+}
+
+body.contact::before {
+  content: '';
+  position: fixed;
+  top: 5%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(254, 214, 6, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+body.contact::after {
+  content: '';
+  position: fixed;
+  bottom: 5%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(178, 34, 34, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* NAV */
+body.contact .nav {
+  background: rgba(250, 250, 250, 0.7);
+}
+body.contact .nav-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+}
+body.contact .nav-brand,
+body.contact .nav-link {
+  color: #1a1a1a;
+}
+body.contact .nav-link::after {
+  background: linear-gradient(90deg, #FED606, #EF3D4D);
+}
+body.contact .nav-toggle span {
+  background: #1a1a1a;
+}
+@media (max-width: 880px) {
+  body.contact .nav-links {
+    background: #fafafa;
+  }
+}
+
+/* ============================================
+   SECTION 1: HERO
+   ============================================ */
+.ct-hero {
+  padding: 10rem 2rem 4rem;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.ct-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.ct-hero-eyebrow {
+  font-family: var(--font-script);
+  font-size: 1.75rem;
+  color: #B22222;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.ct-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 1.25rem;
+}
+
+.ct-hero-title em {
+  color: #B22222;
+  font-style: italic;
+}
+
+.ct-hero-title .accent-yellow {
+  background: linear-gradient(120deg, transparent 0%, transparent 60%, #FED606 60%, #FED606 100%);
+  padding: 0 0.4rem;
+}
+
+.ct-hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: #444;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ============================================
+   SECTION 2: CONTACT INFO CARDS
+   ============================================ */
+.ct-info {
+  padding: 3rem 2rem 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-info-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .ct-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ct-info-card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ct-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.ct-info-card:nth-child(1)::before { background: linear-gradient(90deg, #FED606, #FFE94D); }
+.ct-info-card:nth-child(2)::before { background: linear-gradient(90deg, #EF3D4D, #FF5BB5); }
+.ct-info-card:nth-child(3)::before { background: linear-gradient(90deg, #5B8DCA, #182851); }
+
+.ct-info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.ct-info-icon-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: transform 0.4s ease;
+}
+
+.ct-info-card:nth-child(1) .ct-info-icon-wrap {
+  background: linear-gradient(135deg, #FED606, #FFE94D);
+  color: #000;
+}
+.ct-info-card:nth-child(2) .ct-info-icon-wrap {
+  background: linear-gradient(135deg, #EF3D4D, #FF5BB5);
+  color: #fff;
+}
+.ct-info-card:nth-child(3) .ct-info-icon-wrap {
+  background: linear-gradient(135deg, #5B8DCA, #182851);
+  color: #fff;
+}
+
+.ct-info-card:hover .ct-info-icon-wrap {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.ct-info-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+}
+
+.ct-info-label {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.ct-info-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.ct-info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-top: 0.85rem;
+  border-top: 1px solid #eee;
+  width: 100%;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.ct-info-card:nth-child(1) .ct-info-link { color: #B22222; }
+.ct-info-card:nth-child(2) .ct-info-link { color: #B22222; }
+.ct-info-card:nth-child(3) .ct-info-link { color: #1B3B6F; }
+
+.ct-info-link:hover {
+  color: #000;
+}
+
+/* Working hours block */
+.ct-hours {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ct-hours-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #B22222;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.ct-hours-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.ct-hours-sub {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ============================================
+   SECTION 3: TWO BRANDS SOCIAL SPLIT
+   ============================================ */
+.ct-brands {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.ct-section-intro {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.ct-section-eyebrow {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: #B22222;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.ct-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ct-section-title em {
+  color: #B22222;
+  font-style: italic;
+}
+
+.ct-brands-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .ct-brands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ct-brand-card {
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ct-brand-card-arts {
+  background: linear-gradient(135deg, #FED606 0%, #FFE94D 100%);
+  color: #000;
+}
+
+.ct-brand-card-tattoo {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  color: #fff;
+}
+
+.ct-brand-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+.ct-brand-card-logo {
+  height: 80px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ct-brand-card-logo img {
+  max-height: 100%;
+  width: auto;
+}
+
+.ct-brand-card-handle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ct-brand-card-sub {
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+  opacity: 0.85;
+}
+
+.ct-brand-socials {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.ct-brand-socials a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ct-brand-card-arts .ct-brand-socials a {
+  background: #000;
+  color: #FED606;
+}
+
+.ct-brand-card-arts .ct-brand-socials a:hover {
+  background: #EF3D4D;
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+}
+
+.ct-brand-card-tattoo .ct-brand-socials a {
+  background: #D4AF37;
+  color: #000;
+}
+
+.ct-brand-card-tattoo .ct-brand-socials a:hover {
+  background: #fff;
+  transform: translateY(-4px) scale(1.05);
+}
+
+.ct-brand-socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ============================================
+   SECTION 4: LOCATION & MAP
+   ============================================ */
+.ct-location {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.ct-location-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .ct-location-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ct-location-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.ct-location-content h2 em {
+  color: #B22222;
+  font-style: italic;
+}
+
+.ct-location-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1.25rem;
+}
+
+.ct-location-detail {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ct-location-detail-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FED606, #FFE94D);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ct-location-detail-icon svg {
+  width: 22px;
+  height: 22px;
+  color: #000;
+}
+
+.ct-location-detail-text strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+
+.ct-location-detail-text span {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.ct-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #000;
+  color: #FED606;
+  padding: 0.95rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.ct-map-link:hover {
+  background: #EF3D4D;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.ct-map-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 4 / 3;
+}
+
+.ct-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ============================================
+   SECTION 5: CONTACT FORM (→ WhatsApp)
+   ============================================ */
+.ct-form {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.ct-form-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.ct-form-wrap::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(254, 214, 6, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ct-form-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.ct-form-intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ct-form-intro h2 em {
+  color: #B22222;
+  font-style: italic;
+}
+
+.ct-form-intro p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.ct-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .ct-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ct-form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ct-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.ct-form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.ct-form-input,
+.ct-form-select,
+.ct-form-textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.95rem 1.15rem;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fafafa;
+  color: #000;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.ct-form-input:focus,
+.ct-form-select:focus,
+.ct-form-textarea:focus {
+  outline: none;
+  border-color: #FED606;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(254, 214, 6, 0.15);
+}
+
+.ct-form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.ct-form-submit {
+  width: 100%;
+  background: #25D366;
+  color: #fff;
+  padding: 1.1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.ct-form-submit:hover {
+  background: #128C7E;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.ct-form-submit svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.ct-form-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.85rem;
+  position: relative;
+}
+
+/* ============================================
+   FOOTER (contact)
+   ============================================ */
+body.contact .footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  color: #fff;
+  margin-top: 4rem;
+  z-index: 1;
+  position: relative;
+}
+
+body.contact .footer-brand-name {
+  background: linear-gradient(90deg, #FED606, #FF5BB5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.contact .footer-col h4 {
+  color: #FED606;
+}
+
+body.contact .footer-list a:hover {
+  color: #FED606;
+}
+
+body.contact .footer-social-icons a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+body.contact .footer-social-icons a:hover {
+  background: #FED606;
+  color: #000;
+}
+
+body.contact .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.contact .footer-bottom a {
+  color: #FED606;
+}
