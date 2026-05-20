@@ -158,29 +158,41 @@ function openActivityModal(index) {
 // ============================================
 // GALLERY DATA
 // ============================================
+// Build the Portraits image list (cover + 20 popup images)
+const portraitImages = Array.from({length: 20}, (_, i) =>
+  `../images/portrait-${String(i + 1).padStart(2, '0')}.jpg`
+);
+
 const galleryCategories = [
-  { name: 'Portraits', initial: 'P', count: 6 },
-  { name: 'Canvas', initial: 'C', count: 8 },
-  { name: 'Vitrail', initial: 'V', count: 5 },
-  { name: 'Clothes Paint', initial: 'CP', count: 7 },
-  { name: 'Religious Icons', initial: 'RI', count: 6 },
-  { name: 'Dream Catchers', initial: 'DC', count: 4 },
-  { name: 'Tote Bags', initial: 'TB', count: 8 },
-  { name: 'Invitations', initial: 'I', count: 5 }
+  { name: 'Portraits', initial: 'P', cover: '../images/portrait-cover.jpg', images: portraitImages },
+  { name: 'Canvas', initial: 'C', cover: null, images: [], count: 8 },
+  { name: 'Vitrail', initial: 'V', cover: null, images: [], count: 5 },
+  { name: 'Clothes Paint', initial: 'CP', cover: null, images: [], count: 7 },
+  { name: 'Religious Icons', initial: 'RI', cover: null, images: [], count: 6 },
+  { name: 'Dream Catchers', initial: 'DC', cover: null, images: [], count: 4 },
+  { name: 'Tote Bags', initial: 'TB', cover: null, images: [], count: 8 },
+  { name: 'Invitations', initial: 'I', cover: null, images: [], count: 5 }
 ];
 
 function renderGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
-  grid.innerHTML = galleryCategories.map((g, i) => `
+  grid.innerHTML = galleryCategories.map((g, i) => {
+    const hasImages = g.images && g.images.length > 0;
+    const count = hasImages ? g.images.length : (g.count || 0);
+    const cardInner = (hasImages && g.cover)
+      ? `<img src="${g.cover}" alt="${g.name} by Delara Bitar" class="da-gallery-img" loading="lazy">`
+      : `<div class="da-gallery-placeholder">${g.initial}</div>`;
+    return `
     <div class="da-gallery-card reveal ${i > 3 ? 'reveal-delay-' + (i % 5 + 1) : ''}" onclick="openGalleryModal(${i})">
-      <div class="da-gallery-placeholder">${g.initial}</div>
-      <div class="da-gallery-count">+${g.count}</div>
+      ${cardInner}
+      <div class="da-gallery-count">+${count}</div>
       <div class="da-gallery-overlay">
         <span class="da-gallery-label">${g.name}</span>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Re-bind reveal observer
   const newReveals = grid.querySelectorAll('.reveal');
@@ -197,15 +209,39 @@ function renderGallery() {
 
 function openGalleryModal(index) {
   const g = galleryCategories[index];
-  const placeholders = Array.from({length: g.count}, (_, i) =>
-    `<div class="modal-gallery-placeholder">${g.name}<br>#${i + 1}<br><small>Photo coming soon</small></div>`
-  ).join('');
+  const hasImages = g.images && g.images.length > 0;
+  let inner;
+  if (hasImages) {
+    inner = g.images.map((src, i) =>
+      `<img src="${src}" alt="${g.name} #${i + 1} by Delara Bitar" class="modal-gallery-img" loading="lazy" onclick="openLightbox('${src}')">`
+    ).join('');
+  } else {
+    const cnt = g.count || 0;
+    inner = Array.from({length: cnt}, (_, i) =>
+      `<div class="modal-gallery-placeholder">${g.name}<br>#${i + 1}<br><small>Photo coming soon</small></div>`
+    ).join('');
+  }
   const content = `
     <h3>${g.name}</h3>
     <p style="margin-bottom: 1rem; color: #666;">A selection of Delara's ${g.name.toLowerCase()} work.</p>
-    <div class="modal-gallery">${placeholders}</div>
+    <div class="modal-gallery">${inner}</div>
   `;
   openModal(content);
+}
+
+// Lightbox: click a gallery image to view it large
+function openLightbox(src) {
+  let lb = document.getElementById('da-lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'da-lightbox';
+    lb.className = 'da-lightbox';
+    lb.onclick = () => { lb.classList.remove('open'); };
+    lb.innerHTML = '<img src="" alt="Artwork by Delara Bitar"><span class="da-lightbox-close">&times;</span>';
+    document.body.appendChild(lb);
+  }
+  lb.querySelector('img').src = src;
+  lb.classList.add('open');
 }
 
 // ============================================
