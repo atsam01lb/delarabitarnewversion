@@ -104,7 +104,6 @@ body.home .nav-toggle span {
   z-index: 2;
   text-align: center;
   max-width: 900px;
-  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
 }
 
 .hero-eyebrow {
@@ -114,6 +113,8 @@ body.home .nav-toggle span {
   color: #B22222;
   margin-bottom: 1rem;
   transform: rotate(-3deg);
+  opacity: 0;
+  animation: heroFadeDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 .hero-title {
@@ -123,16 +124,24 @@ body.home .nav-toggle span {
   line-height: 1.05;
   margin-bottom: 1.5rem;
   letter-spacing: -2px;
+  opacity: 0;
+  animation: heroFadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
+             heroFloat 6s ease-in-out 1.5s infinite;
 }
 
 .hero-title .accent-yellow {
   background: linear-gradient(120deg, transparent 0%, transparent 60%, #FED606 60%, #FED606 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
   padding: 0 0.5rem;
+  animation: heroHighlight 1.2s cubic-bezier(0.4, 0, 0.2, 1) 1.3s forwards;
 }
 
 .hero-title .accent-red {
   color: #B22222;
   font-style: italic;
+  display: inline-block;
+  animation: heroAmpersand 4s ease-in-out 2s infinite;
 }
 
 .hero-subtitle {
@@ -141,6 +150,8 @@ body.home .nav-toggle span {
   max-width: 640px;
   margin: 0 auto 0.75rem;
   color: #444;
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
 }
 
 .hero-since {
@@ -149,6 +160,8 @@ body.home .nav-toggle span {
   color: #1B3B6F;
   margin-bottom: 2.5rem;
   font-weight: 700;
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
 }
 
 .hero-cta-group {
@@ -156,6 +169,8 @@ body.home .nav-toggle span {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
 }
 
 .btn-primary,
@@ -620,4 +635,43 @@ body.home .footer-bottom {
 
 body.home .footer-bottom a {
   color: #FED606;
+}
+
+/* ============================================
+   ENHANCED HERO ANIMATIONS
+   ============================================ */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-3deg);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes heroHighlight {
+  to { background-position: 0 0; }
+}
+
+@keyframes heroAmpersand {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(-5deg); }
 }
