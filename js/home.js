@@ -4,10 +4,10 @@
 
 const moreTestimonials = [
   {
-    text: "I've been bringing my kids to Delar' arts for years. Delara has a gift for making children feel like real artists. The summer workshops are the highlight of their year.",
+    text: "I've been bringing my kids to Del' Arts for years. Delara has a gift for making children feel like real artists. The summer workshops are the highlight of their year.",
     name: "Carla M.",
     initial: "C",
-    source: "Delar' arts client"
+    source: "Del' Arts client"
   },
   {
     text: "Got my piercing done at Delar Tattoo and was blown away by how professional everything was. Sterile, careful, and beautiful aftercare guidance. Healed perfectly.",
