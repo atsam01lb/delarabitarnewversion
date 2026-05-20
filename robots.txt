@@ -1,0 +1,8 @@
+# Robots.txt for delarabitar.com
+# Welcome, crawlers! Index everything.
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.delarabitar.com/sitemap.xml

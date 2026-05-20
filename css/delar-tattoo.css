@@ -1,0 +1,749 @@
+/* ============================================
+   DELAR TATTOO PAGE — Pure Black Theme
+   ============================================ */
+
+body.delar-tattoo {
+  background: #000;
+  color: #F5F5F5;
+}
+
+/* Atmospheric gradient overlays */
+body.delar-tattoo::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(178, 34, 34, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 12s ease-in-out infinite;
+}
+
+body.delar-tattoo::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+/* Subtle grain texture */
+body.delar-tattoo {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(178, 34, 34, 0.04) 0%, transparent 50%),
+    #000;
+}
+
+/* NAV */
+body.delar-tattoo .nav {
+  background: rgba(0, 0, 0, 0.7);
+}
+body.delar-tattoo .nav-scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+body.delar-tattoo .nav-brand {
+  color: #D4AF37;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+body.delar-tattoo .nav-link {
+  color: #F5F5F5;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+body.delar-tattoo .nav-link::after {
+  background: #D4AF37;
+}
+body.delar-tattoo .nav-link:hover {
+  color: #D4AF37;
+}
+body.delar-tattoo .nav-toggle span {
+  background: #D4AF37;
+}
+@media (max-width: 880px) {
+  body.delar-tattoo .nav-links {
+    background: #000;
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* ============================================
+   SECTION 1: HERO
+   ============================================ */
+.dt-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.dt-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(27, 59, 111, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(178, 34, 34, 0.2) 0%, transparent 50%),
+    #000;
+  z-index: 0;
+}
+
+/* Decorative line accent */
+.dt-hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  height: 90%;
+  max-height: 700px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 50%;
+}
+
+.dt-hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 500px;
+  height: 75%;
+  max-height: 500px;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  border-radius: 50%;
+}
+
+.dt-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.dt-hero-logo {
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+  filter: drop-shadow(0 10px 40px rgba(212, 175, 55, 0.2));
+}
+
+.dt-hero-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: #D4AF37;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.dt-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  color: #F5F5F5;
+}
+
+.dt-hero-title em {
+  color: #D4AF37;
+  font-style: italic;
+}
+
+.dt-hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: rgba(245, 245, 245, 0.75);
+  line-height: 1.7;
+}
+
+.dt-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+  padding: 1.1rem 2.75rem;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dt-hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #D4AF37;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.dt-hero-cta:hover {
+  color: #000;
+}
+
+.dt-hero-cta:hover::before {
+  transform: translateX(0);
+}
+
+/* ============================================
+   SECTION 2: ABOUT DELAR TATTOO
+   ============================================ */
+.dt-about {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.dt-about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dt-section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #D4AF37;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.dt-section-eyebrow::before,
+.dt-section-eyebrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: #D4AF37;
+}
+
+.dt-section-eyebrow::before { left: 0; }
+.dt-section-eyebrow::after { right: 0; }
+
+.dt-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  color: #F5F5F5;
+}
+
+.dt-section-title em {
+  color: #D4AF37;
+  font-style: italic;
+}
+
+.dt-about-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(245, 245, 245, 0.8);
+  margin-bottom: 1.25rem;
+}
+
+.dt-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.dt-divider span {
+  width: 60px;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.4);
+}
+
+.dt-divider svg {
+  color: #D4AF37;
+}
+
+/* ============================================
+   SECTION 3: SERVICES (3 categories)
+   ============================================ */
+.dt-services {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.dt-section-intro {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.dt-services-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .dt-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dt-service-card {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dt-service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.08) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dt-service-card:hover {
+  border-color: #D4AF37;
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+.dt-service-card:hover::before {
+  opacity: 1;
+}
+
+.dt-service-icon-wrap {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.dt-service-card:hover .dt-service-icon-wrap {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37;
+}
+
+.dt-service-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #F5F5F5;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.dt-service-tagline {
+  font-size: 0.9rem;
+  color: rgba(245, 245, 245, 0.65);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  position: relative;
+}
+
+.dt-service-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+/* ============================================
+   SECTION 4: GALLERY (3 popups)
+   ============================================ */
+.dt-gallery {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.dt-gallery-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .dt-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dt-gallery-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  background: #0a0a0a;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dt-gallery-card:hover {
+  border-color: #D4AF37;
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dt-gallery-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%),
+    linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  color: #D4AF37;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-style: italic;
+}
+
+.dt-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.dt-gallery-card:hover .dt-gallery-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(178, 34, 34, 0.4) 50%, transparent 100%);
+}
+
+.dt-gallery-label {
+  color: #F5F5F5;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.dt-gallery-sublabel {
+  font-size: 0.75rem;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.dt-gallery-count {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(212, 175, 55, 0.95);
+  color: #000;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SECTION 5: HYGIENE & SAFETY
+   ============================================ */
+.dt-hygiene {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, rgba(27, 59, 111, 0.08) 50%, transparent 100%);
+}
+
+.dt-hygiene-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 880px) {
+  .dt-hygiene-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .dt-hygiene-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dt-hygiene-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.dt-hygiene-card:hover {
+  background: rgba(212, 175, 55, 0.05);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-4px);
+}
+
+.dt-hygiene-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+}
+
+.dt-hygiene-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dt-hygiene-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F5F5F5;
+  margin-bottom: 0.5rem;
+}
+
+.dt-hygiene-desc {
+  font-size: 0.85rem;
+  color: rgba(245, 245, 245, 0.7);
+  line-height: 1.6;
+}
+
+/* ============================================
+   SECTION 6: CTA
+   ============================================ */
+.dt-cta {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.dt-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1B3B6F 0%, #000 60%, #B22222 200%);
+  padding: clamp(3rem, 7vw, 5rem) clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.dt-cta-inner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.dt-cta-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #D4AF37;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.dt-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.dt-cta-title em {
+  color: #D4AF37;
+  font-style: italic;
+}
+
+.dt-cta-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.dt-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.dt-cta-btn-primary,
+.dt-cta-btn-secondary {
+  padding: 1.1rem 2.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dt-cta-btn-primary {
+  background: #D4AF37;
+  color: #000;
+}
+
+.dt-cta-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.dt-cta-btn-secondary {
+  background: transparent;
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+}
+
+.dt-cta-btn-secondary:hover {
+  background: #D4AF37;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   FOOTER (delar-tattoo)
+   ============================================ */
+body.delar-tattoo .footer {
+  background: #0a0a0a;
+  color: #F5F5F5;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  margin-top: 3rem;
+  z-index: 1;
+  position: relative;
+}
+
+body.delar-tattoo .footer-brand-name {
+  color: #D4AF37;
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+body.delar-tattoo .footer-col h4 {
+  color: #D4AF37;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
+
+body.delar-tattoo .footer-tagline,
+body.delar-tattoo .footer-list a,
+body.delar-tattoo .footer-since {
+  color: rgba(245, 245, 245, 0.7);
+}
+
+body.delar-tattoo .footer-list a:hover {
+  color: #D4AF37;
+}
+
+body.delar-tattoo .footer-social-icons a {
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+body.delar-tattoo .footer-social-icons a:hover {
+  background: #D4AF37;
+  color: #000;
+  border-color: #D4AF37;
+}
+
+body.delar-tattoo .footer-bottom {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  color: rgba(245, 245, 245, 0.5);
+}
+
+body.delar-tattoo .footer-bottom a {
+  color: #D4AF37;
+}
