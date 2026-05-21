@@ -173,11 +173,19 @@ const vitrailImages = Array.from({length: 10}, (_, i) =>
   `../images/vitrail-${String(i + 1).padStart(2, '0')}.jpg`
 );
 
+// Build the Clothes Paint image list (existing cover popup + 18 popup images)
+const clothesImages = [
+  '../images/clothes-cover.jpg',
+  ...Array.from({length: 18}, (_, i) =>
+    `../images/clothes-${String(i + 1).padStart(2, '0')}.jpg`
+  )
+];
+
 const galleryCategories = [
   { name: 'Portraits', initial: 'P', cover: '../images/portrait-cover.jpg', images: portraitImages },
   { name: 'Canvas', initial: 'C', cover: '../images/canvas-cover.jpg', images: canvasImages },
   { name: 'Vitrail', initial: 'V', cover: '../images/vitrail-cover.jpg', images: vitrailImages },
-  { name: 'Clothes Paint', initial: 'CP', cover: '../images/clothes-cover.jpg', images: ['../images/clothes-cover.jpg'] },
+  { name: 'Clothes Paint', initial: 'CP', cover: '../images/clothes-cover.jpg', images: clothesImages },
   { name: 'Religious Icons', initial: 'RI', cover: null, images: [], count: 6 },
   { name: 'Dream Catchers', initial: 'DC', cover: null, images: [], count: 4 },
   { name: 'Tote Bags', initial: 'TB', cover: null, images: [], count: 8 },
