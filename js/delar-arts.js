@@ -181,15 +181,25 @@ const clothesImages = [
   )
 ];
 
+// Build the Religious Icons image list (10 popup images)
+const iconImages = Array.from({length: 10}, (_, i) =>
+  `../images/icon-${String(i + 1).padStart(2, '0')}.jpg`
+);
+
+// Build the Invitations image list (1 popup image)
+const invitationImages = [
+  '../images/invitation-01.jpg'
+];
+
 const galleryCategories = [
   { name: 'Portraits', initial: 'P', cover: '../images/portrait-cover.jpg', images: portraitImages },
   { name: 'Canvas', initial: 'C', cover: '../images/canvas-cover.jpg', images: canvasImages },
   { name: 'Vitrail', initial: 'V', cover: '../images/vitrail-cover.jpg', images: vitrailImages },
   { name: 'Clothes Paint', initial: 'CP', cover: '../images/clothes-cover.jpg', images: clothesImages },
-  { name: 'Religious Icons', initial: 'RI', cover: null, images: [], count: 6 },
+  { name: 'Religious Icons', initial: 'RI', cover: '../images/icon-cover.jpg', images: iconImages },
   { name: 'Dream Catchers', initial: 'DC', cover: null, images: [], count: 4 },
   { name: 'Tote Bags', initial: 'TB', cover: null, images: [], count: 8 },
-  { name: 'Invitations', initial: 'I', cover: null, images: [], count: 5 }
+  { name: 'Invitations', initial: 'I', cover: '../images/invitation-cover.jpg', images: invitationImages }
 ];
 
 function renderGallery() {
